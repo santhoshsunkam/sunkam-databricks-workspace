@@ -33,7 +33,7 @@ df = rdd1.toDF()
 
 # COMMAND ----------
 
-df.display()
+display(df)
 
 # COMMAND ----------
 
