@@ -60,7 +60,67 @@ dbutils.fs.rm("dbfs:/FileStore/Santhosh/",True)
 
 # COMMAND ----------
 
-dbutils.fs.head("dbfs:/FileStore/Santhosh/sample.txt",30)
+# check if exit after drop in above command
+#dbutils.fs.head("dbfs:/FileStore/Santhosh/sample.txt",30)
+
+# COMMAND ----------
+
+###fs Commands with magic command
+
+# COMMAND ----------
+
+dbutils.fs.help()
+
+# COMMAND ----------
+
+# MAGIC %sh
+# MAGIC pwd 
+# MAGIC ls
+
+# COMMAND ----------
+
+# MAGIC %fs 
+# MAGIC ls "dbfs:/FileStore/"
+
+# COMMAND ----------
+
+# MAGIC %fs 
+# MAGIC mkdirs "/Santhosh"
+
+# COMMAND ----------
+
+# MAGIC %fs
+# MAGIC ls
+
+# COMMAND ----------
+
+# MAGIC %fs
+# MAGIC put sample.txt "this is from %fs magic commands created this file using put()"
+
+# COMMAND ----------
+
+# MAGIC %fs
+# MAGIC ls
+
+# COMMAND ----------
+
+# MAGIC %fs
+# MAGIC put dbfs:/Santhosh/two.txt "second file in folder"
+
+# COMMAND ----------
+
+# MAGIC %fs
+# MAGIC ls 
+
+# COMMAND ----------
+
+# MAGIC %fs
+# MAGIC ls dbfs:/Santhosh/
+
+# COMMAND ----------
+
+# MAGIC %fs 
+# MAGIC head "dbfs:/Santhosh/two.txt"
 
 # COMMAND ----------
 
