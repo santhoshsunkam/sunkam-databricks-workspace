@@ -48,4 +48,20 @@ dbutils.fs.mkdirs("dbfs:/FileStore/Santhosh")
 
 # COMMAND ----------
 
+dbutils.fs.put("dbfs:/FileStore/Santhosh/sample.txt","this is sample fiel written for the sample file using put coomand")
+
+# COMMAND ----------
+
+dbutils.fs.head("dbfs:/FileStore/Santhosh/sample.txt",30)
+
+# COMMAND ----------
+
+dbutils.fs.rm("dbfs:/FileStore/Santhosh/",True)
+
+# COMMAND ----------
+
+dbutils.fs.head("dbfs:/FileStore/Santhosh/sample.txt",30)
+
+# COMMAND ----------
+
 
