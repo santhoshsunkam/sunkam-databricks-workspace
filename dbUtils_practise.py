@@ -37,4 +37,15 @@ dbutils.fs.cp("databricks-datasets/amazon/README.md","dbfs:/FileStore/")
 
 # COMMAND ----------
 
+# making directory santhosh in FileStore, you can check in data folder sidebar
+dbutils.fs.mkdirs("dbfs:/FileStore/Santhosh")
+
+# COMMAND ----------
+
+# MAGIC %sh
+# MAGIC pwd 
+# MAGIC ls
+
+# COMMAND ----------
+
 
