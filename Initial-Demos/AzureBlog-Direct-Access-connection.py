@@ -3,12 +3,12 @@ dbutils.secrets.listScopes()
 
 # COMMAND ----------
 
-dbutils.secrets.list("sunkamSecreteScope")
+dbutils.secrets.list("sunkamsecret")
 
 # COMMAND ----------
 
 storage_account_name = "sunkamstorage"
-storage_account_access_key = "blobsourcekey"
+storage_account_access_key = "blobsourcekeyvault"
 file_location = "wasbs://sunkamstorage.blob.core.windows.net/"
 file_type = "csv"
 
@@ -25,15 +25,28 @@ dbutils.secrets.list("sunkamSecreteScope")
 
 # COMMAND ----------
 
-# MAGIC %fs ls 
+storage_account_name = "sunkamstorage"
+storage_account_key = "blobsourcekeyvault"
+container = "input"
 
 # COMMAND ----------
 
-configs = 
+spark.conf.set("fs.azure.account.key.{0}.blob.core.windows.net".format(storage_account_name), storage_account_key)
+
+# COMMAND ----------
+
 dbutils.fs.mount(
   source = "wasbs://input@sunkamstorage.blob.core.windows.net/",
-  mountPoint="/mnt", 
-  extraConfigs = dbutils.secrets.get(scope = "sunkamSecreteScope", key = "blobsourcekey"))
+  mount_point="/mnt", 
+  extra_configs = dbutils.secrets.get(scope = "sunkamsecret", key = "blobsourcekeyvault"))
+
+# COMMAND ----------
+
+dbutils.fs.mount(
+ source = "wasbs://{0}@{1}.blob.core.windows.net".format(container, storage_account_name),
+ mount_point = "/mnt/sunkamblob",
+ extra_configs = {"fs.azure.account.key.{0}.blob.core.windows.net".format(storage_account_name): storage_account_key}
+)
 
 # COMMAND ----------
 
