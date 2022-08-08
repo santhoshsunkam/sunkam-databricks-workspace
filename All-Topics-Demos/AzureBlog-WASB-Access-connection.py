@@ -47,5 +47,9 @@ df.head()
 
 # COMMAND ----------
 
-dest_file_path="/mnt/output/"
-df.spark.write()
+dest_file_path="/output/"
+df.write.format("csv").option("header",True).save(dest_file_path)
+
+# COMMAND ----------
+
+
