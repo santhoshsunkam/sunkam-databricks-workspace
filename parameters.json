@@ -1,0 +1,18 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "vaults_blobsourcekey_name": {
+            "value": null
+        },
+        "workspaces_sunkam_db_wrk_name": {
+            "value": null
+        },
+        "storageAccounts_sunkamstorage_name": {
+            "value": null
+        },
+        "storageAccounts_blobsinkstorage_name": {
+            "value": null
+        }
+    }
+}
