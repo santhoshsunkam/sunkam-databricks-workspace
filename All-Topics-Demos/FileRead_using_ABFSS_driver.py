@@ -47,3 +47,7 @@ df2.coalesce(1).write.option("header",True).csv("abfss://output@blobsinkstg.dfs.
 # COMMAND ----------
 
 
+
+# COMMAND ----------
+
+
