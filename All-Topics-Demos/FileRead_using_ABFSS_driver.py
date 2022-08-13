@@ -42,7 +42,7 @@ target_file_path = "abfss://output@blobsinkstg.dfs.core.windows.net"
 
 # COMMAND ----------
 
-df2.write.option("header",True).csv("abfss://output@blobsinkstg.dfs.core.windows.net/EMP/")
+df2.coalesce(1).write.option("header",True).csv("abfss://output@blobsinkstg.dfs.core.windows.net/santh")
 
 # COMMAND ----------
 
