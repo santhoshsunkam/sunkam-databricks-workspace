@@ -28,7 +28,7 @@ connectionProperties = {
 # COMMAND ----------
 
 #pushdown_query = "(select * from dbo.emp) emp_alias"
-df = spark.read.jdbc(url=jdbcUrl, table="dbo.emp", properties=connectionProperties)
+df = spark.read.jdbc(url=jdbcUrl, table="(select * from dbo.emp where salary<6000) emp1", properties=connectionProperties)
 
 
 
